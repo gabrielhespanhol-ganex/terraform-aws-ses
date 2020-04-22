@@ -12,4 +12,5 @@ variable "enable_verification" {
 variable "route53_zone_id" {
   description = "Route53 host zone ID to enable SES."
   type        = "string"
+  default     = ""
 }
