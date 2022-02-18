@@ -24,11 +24,13 @@ variable "enable_notifications" {
 variable "notifications_sns_topic_arn" {
   description = "(Required) The Amazon Resource Name (ARN) of the Amazon SNS topic."
   type        = string
+  default     = null
 }
 
 variable "notifications_type" {
   description = "(Required) A list of notifications that will be published to the specified Amazon SNS topic. Valid Values: Bounce, Complaint or Delivery."
   type        = list(string)
+  default     = []
 }
 
 variable "notifications_include_original_headers" {
