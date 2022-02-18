@@ -42,3 +42,15 @@ resource "aws_route53_record" "dkim" {
   ttl     = "600"
   records = ["${element(aws_ses_domain_dkim.main.dkim_tokens, count.index)}.dkim.amazonses.com"]
 }
+
+#
+# SES Notifications
+#
+
+resource "aws_ses_identity_notification_topic" "this" {
+  count                    = var.enable_notifications ? length(var.notifications_type) : 0
+  topic_arn                = var.notifications_sns_topic_arn
+  notification_type        = var.notifications_type[count.index]
+  identity                 = aws_ses_domain_identity.main.domain
+  include_original_headers = var.notifications_include_original_headers
+}
