@@ -38,3 +38,16 @@ variable "notifications_include_original_headers" {
   type        = bool
   default     = false
 }
+
+variable "tags" {
+  type        = map(string)
+  description = "(Optional) Additional Tags"
+  default     = {}
+}
+
+variable "configuration_set_name" {
+  description = "(Optional) The configuration set to use by default when sending from this identity. "
+  type        = string
+  default     = null
+}
+
