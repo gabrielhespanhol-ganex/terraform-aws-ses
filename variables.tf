@@ -46,8 +46,13 @@ variable "tags" {
 }
 
 variable "configuration_set_name" {
-  description = "(Optional) The configuration set to use by default when sending from this identity. "
+  description = "(Optional) The configuration set to use by default when sending from this identity."
   type        = string
   default     = null
 }
 
+variable "enable_domain_dkim" {
+  description = "Control whether or not generate domain DKIM resource."
+  type        = string
+  default     = true
+}
