@@ -16,14 +16,14 @@ resource "aws_sesv2_configuration_set" "this" {
   }
 
   dynamic "suppression_options" {
-    for_each = length(var.suppressed_reasons) > 0 ? list(1) : []
+    for_each = length(var.suppressed_reasons) > 0 ? [1] : []
     content {
       suppressed_reasons = var.suppressed_reasons
     }
   }
 
   dynamic "tracking_options" {
-    for_each = var.custom_redirect_domain != null ? list(1) : []
+    for_each = var.custom_redirect_domain != null ? [1] : []
     content {
       custom_redirect_domain = var.custom_redirect_domain
     }
