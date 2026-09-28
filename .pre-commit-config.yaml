@@ -34,3 +34,9 @@ repos:
         entry: quay.io/terraform-docs/terraform-docs:0.20.0
         args: ["markdown", "table", "--lockfile=false", "--output-file", "README.md", "--output-mode", "inject", "."]
         pass_filenames: false
+      - id: terraform-docs-vdm
+        name: Terraform docs (VDM)
+        language: docker_image
+        entry: quay.io/terraform-docs/terraform-docs:0.20.0
+        args: ["markdown", "table", "--lockfile=false", "--output-file", "README.md", "--output-mode", "inject", "modules/vdm"]
+        pass_filenames: false

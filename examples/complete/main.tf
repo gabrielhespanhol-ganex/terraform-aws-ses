@@ -14,3 +14,11 @@ module "this" {
     Example = "complete"
   }
 }
+
+module "vdm" {
+  source = "../../modules/vdm"
+
+  vdm_enabled               = "ENABLED"
+  engagement_metrics        = "DISABLED"
+  optimized_shared_delivery = "DISABLED"
+}

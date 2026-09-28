@@ -4,6 +4,12 @@ Terraform module that provisions SES domain identities, Easy DKIM CNAME records,
 
 For domain identities, Amazon SES v2 verifies Easy DKIM through three CNAME records. This module does not manage the legacy `_amazonses` TXT record.
 
+## Submodules
+
+- [`modules/configuration_set`](modules/configuration_set) creates SESv2 configuration sets.
+- [`modules/dedicated_ip`](modules/dedicated_ip) creates SESv2 dedicated IP pools.
+- [`modules/vdm`](modules/vdm) manages account-level Virtual Deliverability Manager attributes. Instantiate it once per AWS account and region, separately from this identity module.
+
 ## Compatibility
 
 This module requires Terraform 1.6.0 or later and supports AWS provider versions from 5.40.0 up to, but not including, 7.0.0.
