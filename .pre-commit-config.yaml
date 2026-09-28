@@ -4,9 +4,9 @@ repos:
     hooks:
       - id: terraform_fmt
       - id: terraform_validate
-        files: ^(main|variables|outputs|versions)\.tf$
+        files: (^|.*/)(main|variables|outputs|versions)\.tf$
       - id: terraform_tflint
-        files: ^(main|variables|outputs|versions)\.tf$
+        files: (^|.*/)(main|variables|outputs|versions)\.tf$
         args:
           - --args=--only=terraform_deprecated_interpolation
           - --args=--only=terraform_deprecated_index

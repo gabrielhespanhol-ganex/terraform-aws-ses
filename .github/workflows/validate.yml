@@ -30,9 +30,11 @@ jobs:
       - name: Install pre-commit
         run: pipx install pre-commit
 
-      - name: Validate root module
+      - name: Validate Terraform modules
         run: |
           terraform fmt -check -recursive
-          terraform init -backend=false
-          terraform validate
+          for module in . modules/*; do
+            terraform -chdir="$module" init -backend=false
+            terraform -chdir="$module" validate
+          done
           pre-commit run --all-files

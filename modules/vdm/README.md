@@ -4,6 +4,10 @@ Terraform submodule that manages Amazon SES Virtual Deliverability Manager accou
 
 VDM is scoped to one AWS account and one provider region. Instantiate this module once per region; do not add it to the root SES identity module, which is intended to be instantiated once per identity.
 
+## Lifecycle
+
+Destroying or removing this module disables VDM for the AWS account and provider region. To deliberately disable VDM while keeping its account attributes managed by Terraform, set `vdm_enabled = "DISABLED"`.
+
 ## Example
 
 ```hcl
@@ -21,14 +25,14 @@ module "vdm" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | >= 1.6.0 |
-| <a name="requirement_aws"></a> [aws](#requirement_aws) | >= 5.40.0, < 7.0.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.40.0, < 7.0.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider_aws) | >= 5.40.0, < 7.0.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 5.40.0, < 7.0.0 |
 
 ## Modules
 
@@ -44,13 +48,13 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_engagement_metrics"></a> [engagement_metrics](#input_engagement_metrics) | Whether VDM engagement metrics collection is enabled. | `string` | `"DISABLED"` | no |
-| <a name="input_optimized_shared_delivery"></a> [optimized_shared_delivery](#input_optimized_shared_delivery) | Whether VDM optimized shared delivery is enabled. | `string` | `"DISABLED"` | no |
-| <a name="input_vdm_enabled"></a> [vdm_enabled](#input_vdm_enabled) | Whether Virtual Deliverability Manager is enabled for the AWS account in this region. | `string` | n/a | yes |
+| <a name="input_engagement_metrics"></a> [engagement\_metrics](#input\_engagement\_metrics) | Whether VDM engagement metrics collection is enabled. | `string` | `"DISABLED"` | no |
+| <a name="input_optimized_shared_delivery"></a> [optimized\_shared\_delivery](#input\_optimized\_shared\_delivery) | Whether VDM optimized shared delivery is enabled. | `string` | `"DISABLED"` | no |
+| <a name="input_vdm_enabled"></a> [vdm\_enabled](#input\_vdm\_enabled) | Whether Virtual Deliverability Manager is enabled for the AWS account in this region. | `string` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_id"></a> [id](#output_id) | Identifier of the managed SES VDM account attributes. |
+| <a name="output_id"></a> [id](#output\_id) | Identifier of the managed SES VDM account attributes. |
 <!-- END_TF_DOCS -->
